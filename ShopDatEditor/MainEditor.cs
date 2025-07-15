@@ -182,7 +182,7 @@ namespace ShopDatEditor
             string clientPath = txtClientpath.Text.Trim();
             if (string.IsNullOrWhiteSpace(clientPath) || !Directory.Exists(clientPath))
             {
-                MessageBox.Show("Sila pilih folder client dahulu.");
+                MessageBox.Show("Please select the client folder first.");
                 return;
             }
             string iniFolder = Path.Combine(clientPath, "ini");
@@ -191,7 +191,7 @@ namespace ShopDatEditor
 
             if (!File.Exists(shopPath) || !File.Exists(itemtypePath))
             {
-                MessageBox.Show("File Shop.dat atau itemtype.dat tak jumpa dalam folder 'ini'.");
+                MessageBox.Show("Shop.dat or itemtype.dat file not found in ini folder.");
                 return;
             }
 
@@ -487,7 +487,7 @@ namespace ShopDatEditor
                     }
                 }
             }
-            MessageBox.Show("Berjaya simpan Shop.dat & itemtype.dat");
+            MessageBox.Show("Successfully saved Shop.dat & itemtype.dat");
         }
 
 
@@ -964,13 +964,13 @@ namespace ShopDatEditor
                     cmd.ExecuteNonQuery();
                 }
 
-                // Insert ikut shopList order, id auto increment dari 1
                 int inserted = 0;
                 int nextId = 1;
                 foreach (var shop in shopList)
                 {
                     foreach (var item in shop.Items)
                     {
+                        // INSERT ke cq_goods
                         string sql = "INSERT INTO cq_goods (id, ownerid, itemtype) VALUES (@id, @ownerid, @itemtype)";
                         using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn))
                         {
@@ -979,16 +979,27 @@ namespace ShopDatEditor
                             cmd.Parameters.AddWithValue("@itemtype", item.ItemID);
                             inserted += cmd.ExecuteNonQuery();
                         }
+
+                        // UPDATE cq_itemtype ikut harga (Gold/EP)
+                        string sqlUpdate = "UPDATE cq_itemtype SET price=@price, emoney=@emoney WHERE id=@itemid";
+                        using (var cmd2 = new MySql.Data.MySqlClient.MySqlCommand(sqlUpdate, conn))
+                        {
+                            cmd2.Parameters.AddWithValue("@itemid", item.ItemID);
+                            cmd2.Parameters.AddWithValue("@price", item.Gold);
+                            cmd2.Parameters.AddWithValue("@emoney", item.Stone);
+                            cmd2.ExecuteNonQuery();
+                        }
                     }
                 }
 
-                MessageBox.Show($"Truncated and updated {inserted} item(s) to cq_goods!");
+                MessageBox.Show($"Truncated and updated {inserted} item(s) to cq_goods, and updated price/emoney in cq_itemtype!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
         private void UpdateFormTitle()
         {
