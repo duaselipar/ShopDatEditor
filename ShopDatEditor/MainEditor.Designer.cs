@@ -59,7 +59,7 @@
             // 
             // btnLoad
             // 
-            btnLoad.Location = new Point(645, 23);
+            btnLoad.Location = new Point(637, 11);
             btnLoad.Name = "btnLoad";
             btnLoad.Size = new Size(75, 25);
             btnLoad.TabIndex = 0;
@@ -69,9 +69,9 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(1088, 26);
+            btnSave.Location = new Point(1088, 14);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(113, 59);
+            btnSave.Size = new Size(113, 48);
             btnSave.TabIndex = 1;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
@@ -81,7 +81,7 @@
             // 
             dataShop.AllowUserToAddRows = false;
             dataShop.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataShop.Location = new Point(12, 103);
+            dataShop.Location = new Point(12, 83);
             dataShop.Name = "dataShop";
             dataShop.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataShop.Size = new Size(421, 532);
@@ -91,7 +91,7 @@
             // 
             dataItem.AllowUserToAddRows = false;
             dataItem.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataItem.Location = new Point(439, 103);
+            dataItem.Location = new Point(439, 83);
             dataItem.Name = "dataItem";
             dataItem.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataItem.Size = new Size(762, 532);
@@ -99,14 +99,14 @@
             // 
             // txtClientpath
             // 
-            txtClientpath.Location = new Point(124, 23);
+            txtClientpath.Location = new Point(116, 11);
             txtClientpath.Name = "txtClientpath";
             txtClientpath.Size = new Size(429, 23);
             txtClientpath.TabIndex = 4;
             // 
             // btnSelect
             // 
-            btnSelect.Location = new Point(564, 23);
+            btnSelect.Location = new Point(556, 11);
             btnSelect.Name = "btnSelect";
             btnSelect.Size = new Size(75, 26);
             btnSelect.TabIndex = 5;
@@ -116,7 +116,7 @@
             // 
             // btnNewshop
             // 
-            btnNewshop.Location = new Point(12, 65);
+            btnNewshop.Location = new Point(12, 45);
             btnNewshop.Name = "btnNewshop";
             btnNewshop.Size = new Size(117, 32);
             btnNewshop.TabIndex = 6;
@@ -126,7 +126,7 @@
             // 
             // btnNewitem
             // 
-            btnNewitem.Location = new Point(439, 65);
+            btnNewitem.Location = new Point(439, 45);
             btnNewitem.Name = "btnNewitem";
             btnNewitem.Size = new Size(117, 32);
             btnNewitem.TabIndex = 7;
@@ -149,7 +149,7 @@
             groupBox1.Controls.Add(txtUser);
             groupBox1.Controls.Add(txtPort);
             groupBox1.Controls.Add(txtHostname);
-            groupBox1.Location = new Point(12, 651);
+            groupBox1.Location = new Point(12, 631);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(1189, 100);
             groupBox1.TabIndex = 8;
@@ -269,7 +269,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(20, 26);
+            label6.Location = new Point(12, 14);
             label6.Name = "label6";
             label6.Size = new Size(98, 15);
             label6.TabIndex = 9;
@@ -279,17 +279,17 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1213, 762);
+            ClientSize = new Size(1213, 740);
             Controls.Add(label6);
+            Controls.Add(txtClientpath);
+            Controls.Add(btnLoad);
+            Controls.Add(btnSelect);
             Controls.Add(groupBox1);
             Controls.Add(btnNewitem);
             Controls.Add(btnNewshop);
-            Controls.Add(btnSelect);
-            Controls.Add(txtClientpath);
             Controls.Add(dataItem);
             Controls.Add(dataShop);
             Controls.Add(btnSave);
-            Controls.Add(btnLoad);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainEditor";
             StartPosition = FormStartPosition.CenterScreen;
