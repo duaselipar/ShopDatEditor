@@ -275,7 +275,7 @@
             label6.TabIndex = 9;
             label6.Text = "Your Client Path :";
             // 
-            // Form1
+            // MainEditor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -291,7 +291,7 @@
             Controls.Add(btnSave);
             Controls.Add(btnLoad);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Form1";
+            Name = "MainEditor";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Shop Editor By DuaSelipar";
             ((System.ComponentModel.ISupportInitialize)dataShop).EndInit();
